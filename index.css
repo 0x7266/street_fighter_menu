@@ -62,7 +62,7 @@ body {
 .character.active::before {
 	content: "1P";
 	position: absolute;
-	left: 20px;
+	left: 13px;
 	top: 2px;
 	color: white;
 	font-size: 6vmin;
@@ -89,9 +89,12 @@ body {
 		grid-template-columns: repeat(3, 113px);
 	}
 	.character {
-		width: 113px;
 		background-size: cover;
 		background-position: center;
+	}
+	.character.active::before {
+		position: absolute;
+		left: 23px;
 	}
 }
 
