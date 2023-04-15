@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.active {
+	animation: flash 300ms;
+	display: block;
+	scale: 1.065;
+	z-index: 2;
+	transition: all 200ms;
+}
+
+.hidden {
+	display: none;
+}
+
+:not(.active) {
+	transition: all 200ms;
+}
+
+body {
+	font-family: "Press Start 2P", cursive;
+	background-color: #00005e;
+	padding: 1rem;
+	min-height: 100dvh;
+}
+
+#app {
+	display: flex;
+	gap: 1rem;
+	flex-direction: column;
+	align-items: center;
+}
+
+.logo {
+	width: 30vmin;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(8, 113px);
+	place-items: center;
+	max-width: 904px;
+}
+
+.character {
+	height: 134px;
+	position: relative;
+	width: 113px;
+	border: solid 0.5px #847c79;
+}
+
+.character.active {
+	border: solid white;
+	clip-path: all;
+}
+
+.character.active::before {
+	content: "1P";
+	position: absolute;
+	left: 20px;
+	top: 2px;
+	color: white;
+	font-size: 6vmin;
+}
+
+.name {
+	font-size: 2vmin;
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	width: 107px;
+	background-color: rgba(230, 10, 10, 0.6);
+	padding: 5px 0;
+	color: white;
+}
+
+@media screen and (max-width: 900px) {
+	.grid {
+		grid-template-columns: repeat(4, 113px);
+	}
+}
+@media screen and (max-width: 600px) {
+	.grid {
+		grid-template-columns: repeat(3, 113px);
+	}
+	.character {
+		width: 113px;
+		background-size: cover;
+		background-position: center;
+	}
+}
+
+@keyframes flash {
+	0% {
+		filter: brightness(100%);
+	}
+	20% {
+		filter: brightness(150%);
+	}
+	40% {
+		filter: brightness(100%);
+	}
+	60% {
+		filter: brightness(150%);
+	}
+	80% {
+		filter: brightness(100%);
+	}
+	100% {
+		filter: brightness(150%);
+	}
+}
